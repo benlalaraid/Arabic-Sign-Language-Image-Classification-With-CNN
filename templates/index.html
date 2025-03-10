@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabic Hand Sign Classification</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-language"></i> Arabic Hand Sign Classification</h1>
+            <p>Real-time detection of Arabic hand signs using computer vision</p>
+        </header>
+
+        <main>
+            <div class="app-container">
+                <!-- Camera Section -->
+                <section class="camera-section">
+                    <div class="panel">
+                        <h2><i class="fas fa-camera"></i> Camera Feed</h2>
+                        <div class="camera-container">
+                            <video id="video" autoplay playsinline></video>
+                            <canvas id="canvas" style="display: none;"></canvas>
+                            <div class="camera-controls">
+                                <button id="startCamera" class="btn"><i class="fas fa-play"></i> Start Camera</button>
+                                <button id="captureImage" class="btn" disabled><i class="fas fa-camera"></i> Capture</button>
+                            </div>
+                        </div>
+                        <div class="upload-container">
+                            <h3>Or upload an image</h3>
+                            <form id="uploadForm" enctype="multipart/form-data">
+                                <label for="fileUpload" class="file-upload-btn">
+                                    <i class="fas fa-upload"></i> Choose File
+                                </label>
+                                <input type="file" id="fileUpload" accept="image/*" style="display: none;">
+                                <span id="fileName">No file chosen</span>
+                                <button type="submit" class="btn submit-btn"><i class="fas fa-paper-plane"></i> Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Prediction Section -->
+                <section class="prediction-section">
+                    <div class="panel">
+                        <h2><i class="fas fa-brain"></i> Prediction Results</h2>
+                        <div class="prediction-container">
+                            <div class="captured-image-container">
+                                <h3>Captured Image</h3>
+                                <img id="capturedImage" src="/static/placeholder.png" alt="Captured image will appear here">
+                            </div>
+                            
+                            <div class="results-container">
+                                <div class="main-prediction">
+                                    <h3>Prediction</h3>
+                                    <div class="prediction-result">
+                                        <span id="mainPrediction">-</span>
+                                        <div class="confidence-bar-container">
+                                            <div class="confidence-bar" id="mainConfidenceBar" style="width: 0%;"></div>
+                                        </div>
+                                        <span id="mainConfidence">0%</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="other-predictions">
+                                    <h3>Other Possibilities</h3>
+                                    <div id="topPredictions" class="top-predictions">
+                                        <!-- Top predictions will be inserted here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="real-time-mode">
+                            <h3>Real-time Mode</h3>
+                            <label class="switch">
+                                <input type="checkbox" id="realtimeToggle">
+                                <span class="slider round"></span>
+                            </label>
+                            <span id="realtimeStatus">Off</span>
+                            <p class="info-text">When enabled, the camera feed will be continuously analyzed for Arabic hand sign classification.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Arabic Hand Sign Classification | Powered by BENLALA Raid Athmane</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
