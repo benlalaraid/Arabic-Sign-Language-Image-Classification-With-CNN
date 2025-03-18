@@ -1,4 +1,4 @@
-# Arabic Hand Sign Classification with CNN - Yaa2 Detector
+# Arabic Hand Sign Classification with CNN 
 
 This project implements a Convolutional Neural Network (CNN) for classifying Arabic hand signs. The implementation includes data loading, preprocessing, model training, evaluation, and a web application for real-time detection.
 
